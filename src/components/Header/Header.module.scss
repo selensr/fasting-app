@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.header {
+  background-color: $color-white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signOutButton {
+  margin-left: auto;
+  background: rgba(0, 0, 0, 0.16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+  }
+
+  &:focus {
+  }
+}

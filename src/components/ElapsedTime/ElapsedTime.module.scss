@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.elapsedTimeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+
+  .time {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.text {
+  margin: 7px;
+  font-family: "Raleway", sans-serif;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-normal;
+  color: $elapsed-time-text-color;
+}

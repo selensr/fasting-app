@@ -1,0 +1,60 @@
+@import "../../styles/variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+
+.fastingTimeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+
+  @media screen and (max-width: 300px) {
+    font-size: $font-size-normal;
+  }
+
+  .input {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+
+    border: none;
+    padding: 0;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    @media screen and (max-width: 300px) {
+      font-size: $font-size-normal;
+    }
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  /* For Chrome, Safari, Edge, and Opera */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.text {
+  margin: 7px;
+  font-family: "Raleway", sans-serif;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-normal;
+  color: $elapsed-time-text-color;
+
+  @media screen and (max-width: 300px) {
+    font-size: 14px;
+  }
+}

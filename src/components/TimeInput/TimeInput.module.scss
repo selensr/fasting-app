@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+
+.timeInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  .timeInputLabel {
+    font-weight: $font-size-small;
+    font-size: $font-size-normal;
+    line-height: 21px;
+    color: $time-text;
+  }
+
+  .timeInput {
+    font-weight: $font-weight-extra-bold;
+    font-size: $font-size-normal;
+    line-height: 22px;
+    color: $time-color;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    //remove clock icon
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .timeInput::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}

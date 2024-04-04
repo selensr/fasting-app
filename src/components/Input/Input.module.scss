@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  padding: 1.25rem;
+  border: 1px solid $input-border-color;
+  border-radius: $radius-medium; // Adjust as needed
+  font-size: $font-size-small;
+
+  &:focus {
+    outline: none;
+    border-color: darken($input-border-color, 10%);
+  }
+}

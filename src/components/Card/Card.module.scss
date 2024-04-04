@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: $radius-large;
+  width: 100%;
+  background-color: $color-white;
+  padding: 0.875rem;
+
+  .cardIcon {
+    line-height: 42px;
+    font-size: $font-size-larger;
+    font-weight: $font-weight-normal;
+  }
+
+  .cardValue {
+    font-weight: $font-weight-extra-bold;
+    font-size: $font-size-large;
+    line-height: 32px;
+  }
+
+  .cardLabel {
+    font-size: $font-size-normal;
+    line-height: 18.75px;
+    font-weight: $font-weight-normal;
+    text-align: center;
+    color: $card-label-color;
+  }
+}

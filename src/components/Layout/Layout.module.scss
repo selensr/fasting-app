@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-primary;
+
+  .mainContent {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0.5rem;
+  }
+}

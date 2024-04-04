@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+// src/components/Button/button.module.scss
+@import "../../styles/variables";
+
+.button {
+  background-color: $button-color;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: $font-weight-bold;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darken($button-color, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(darken($button-color, 15%), 0.5);
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}

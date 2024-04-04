@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background-color: $color-white;
+  border-radius: $radius-large;
+  width: 30%;
+  margin-top: 131px;
+
+  min-width: 300px;
+  max-width: 345px;
+
+  .title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-extra-bold;
+    margin: 0;
+  }
+
+  .subtitle {
+    margin-top: 0.5rem;
+    margin-bottom: 48px;
+  }
+
+  .input {
+    margin-bottom: 1rem;
+  }
+
+  .signUpButton {
+    margin-top: 1rem;
+    width: 100%;
+    font-weight: $font-weight-medium;
+    height: 60px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 0px;
+    padding: 1.8rem;
+    margin-top: 31px;
+  }
+}
