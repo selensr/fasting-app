@@ -69,7 +69,7 @@ export const FastingTimeProvider = ({ children }: { children: ReactNode }) => {
     parseInt(hours) * 3600 + parseInt(minutes) * 60 + parseInt(seconds);
 
   useEffect(() => {
-    if (fastingState === "completed") {
+    if (fastingState === "completed" && elapsedTimeInSeconds > 0) {
       dispatch(
         addFastingTime({
           fastingTime: {
@@ -85,7 +85,16 @@ export const FastingTimeProvider = ({ children }: { children: ReactNode }) => {
       const totalHours = parseInt(hours);
       dispatch(setTotalHours(totalHours));
     }
-  }, [fastingState, hours, minutes, seconds, startTime, endTime, dispatch]);
+  }, [
+    fastingState,
+    hours,
+    minutes,
+    seconds,
+    startTime,
+    endTime,
+    dispatch,
+    elapsedTimeInSeconds,
+  ]);
 
   return (
     <FastingTimeContext.Provider

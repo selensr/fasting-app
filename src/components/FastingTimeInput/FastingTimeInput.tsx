@@ -2,24 +2,23 @@ import { ChangeEvent, FC } from "react";
 import styles from "./FastingTimeInput.module.scss";
 import { useFastingTime } from "../../contexts/FastingTimeContext";
 
-//TODO: make the input fields has max length of 2
 export const FastingTimeInput: FC = () => {
   const { hours, minutes, seconds, setHours, setMinutes, setSeconds } =
     useFastingTime();
 
   const handleHoursChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.padStart(2, "0");
-    setHours(value);
+    const newValue = formatInputValue(e.target.value);
+    setHours(newValue);
   };
 
   const handleMinutesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.padStart(2, "0");
-    setMinutes(value);
+    const newValue = formatInputValue(e.target.value);
+    setMinutes(newValue);
   };
 
   const handleSecondsChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.padStart(2, "0");
-    setSeconds(value);
+    const newValue = formatInputValue(e.target.value);
+    setSeconds(newValue);
   };
 
   return (
@@ -56,3 +55,10 @@ export const FastingTimeInput: FC = () => {
     </>
   );
 };
+
+function formatInputValue(value: string): string {
+  if (value.length > 2) {
+    return value.slice(0, 2);
+  }
+  return value.padStart(2, "0");
+}

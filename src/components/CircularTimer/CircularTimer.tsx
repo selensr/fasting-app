@@ -1,6 +1,8 @@
 import { FC, useEffect, useRef } from "react";
 import styles from "./CircularTimer.module.scss";
 
+import confetti from "canvas-confetti";
+
 import { useFastingTime } from "../../contexts/FastingTimeContext";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { setFastingState } from "../../store/slices/fastingStateSlice";
@@ -39,6 +41,20 @@ export const CircularTimer: FC<CircularTimerProps> = ({
 
   const svgRef = useRef<SVGSVGElement>(null);
 
+  const launchConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
+
+  //TODO: This interval does not persist when the component is unmounted, so the timer will stop or if the fastingState active it will restart
+  //To avoid this, we can store the interval id in a state and clear it when the component is unmounted
+
+  //TODO: Elapsed time is not persisting too, so when the component is unmounted, the elapsed time will reset
+  //This is why you see resetted elapsed time when you try view all
+
   useEffect(() => {
     let interval: number;
 
@@ -59,7 +75,7 @@ export const CircularTimer: FC<CircularTimerProps> = ({
             if (newProgress >= pathLength) {
               clearInterval(interval);
               dispatch(setFastingState("completed"));
-
+              launchConfetti();
               return pathLength;
             }
 
@@ -74,7 +90,6 @@ export const CircularTimer: FC<CircularTimerProps> = ({
     return () => clearInterval(interval);
   }, [
     fastingState,
-
     setElapsedTime,
     totalFastingTimeInSeconds,
     setElapsedTimeInSeconds,

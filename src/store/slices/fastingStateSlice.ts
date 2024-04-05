@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export type FastingState = {
-  state: "neutral" | "active" | "completed";
+  state: "neutral" | "active" | "stopped" | "completed";
 };
 
 const initialState: FastingState = {

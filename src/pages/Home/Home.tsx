@@ -13,7 +13,6 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { setFastingState } from "../../store/slices/fastingStateSlice";
 import { CardSection } from "../../components/CardSection/CardSection";
 
-export type FastingState = "neutral" | "active" | "completed";
 export const Home: FC = () => {
   const fastingState = useAppSelector((state) => state.fastingState.state);
   const dispatch = useAppDispatch();
@@ -36,10 +35,10 @@ export const Home: FC = () => {
     }
 
     if (fastingState === "active") {
-      dispatch(setFastingState("completed"));
+      dispatch(setFastingState("stopped"));
     }
 
-    if (fastingState === "completed") {
+    if (fastingState === "stopped" || fastingState === "completed") {
       dispatch(setFastingState("neutral"));
       setRestart(true);
     }
