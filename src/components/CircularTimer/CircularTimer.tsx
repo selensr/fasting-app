@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useMemo, useRef } from "react";
 import styles from "./CircularTimer.module.scss";
 
 import confetti from "canvas-confetti";
@@ -116,12 +116,12 @@ export const CircularTimer: FC<CircularTimerProps> = ({
     setRestart,
   ]);
 
-  const currentGradientId =
-    fastingState === "neutral"
-      ? neutralGradientId
-      : fastingState === "active"
-      ? activeGradientId
-      : completedGradientId;
+  const currentGradientId = useMemo(() => {
+    if (fastingState === "neutral") return neutralGradientId;
+    if (fastingState === "active") return activeGradientId;
+    if (fastingState === "stopped") return activeGradientId;
+    if (fastingState === "completed") return completedGradientId;
+  }, [fastingState]);
 
   return (
     <div className={styles.circularTimerContainer}>
@@ -132,6 +132,7 @@ export const CircularTimer: FC<CircularTimerProps> = ({
         viewBox="0 0 421 380"
         fill="none"
         ref={svgRef}
+        key={fastingState}
       >
         {/* Background Circle */}
         <circle
