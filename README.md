@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Fasting App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Fasting App is a fasting tracker app built with Vite, React, and TypeScript. It allows users to set and track their fasting periods, providing a visual circular timer to indicate progress.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication for personalized experience
+- Set fasting start and end times
+- Visual progress tracking with a circular timer
+- Responsive design for desktop and mobile usage
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To get started with Fasting App, clone the repository and install the dependencies:
 
-- Configure the top-level `parserOptions` property like this:
+```bash
+git clone https://github.com/selensr/fasting-app.git
+cd fasting-app
+yarn
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Start the development server
+yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Technologies
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Sass](https://sass-lang.com/)
+
+## Preview Link
+
+[Live Preview](https://poetic-blancmange-5aeb4b.netlify.app/)
