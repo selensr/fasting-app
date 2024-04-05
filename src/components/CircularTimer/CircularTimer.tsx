@@ -21,18 +21,12 @@ const neutralGradientId = "paint0_linear_1_55"; // Your neutral gradient ID
 const activeGradientId = "paint0_linear_2_107"; // Your active gradient ID
 const completedGradientId = "paint0_linear_2_164"; // Your completed gradient ID
 
-const pathLength = 540.1014404296875;
-
 export const CircularTimer: FC<CircularTimerProps> = ({
   restart,
   setRestart,
 }) => {
-  const {
-    elapsedTime,
-    setElapsedTime,
-    totalFastingTimeInSeconds,
-    setElapsedTimeInSeconds,
-  } = useFastingTime();
+  const { setElapsedTime, totalFastingTimeInSeconds, setElapsedTimeInSeconds } =
+    useFastingTime();
 
   const fastingState = useAppSelector((state) => state.fastingState.state);
   const dispatch = useAppDispatch();
@@ -57,6 +51,18 @@ export const CircularTimer: FC<CircularTimerProps> = ({
 
   useEffect(() => {
     let interval: number;
+    const path = document.getElementById(
+      "progressPath"
+    ) as unknown as SVGPathElement;
+    const pathLength = path?.getTotalLength() || 0;
+
+    if (path) {
+      path.style.strokeDasharray = `${pathLength}`;
+    }
+
+    if (fastingState === "neutral" && path) {
+      path.style.strokeDashoffset = "0";
+    }
 
     if (fastingState === "active") {
       interval = setInterval(() => {
@@ -70,6 +76,10 @@ export const CircularTimer: FC<CircularTimerProps> = ({
               (pathLength / totalFastingTimeInSeconds) *
               (updateInterval / 1000);
             const newProgress = prevProgress + increment;
+
+            if (path) {
+              path.style.strokeDashoffset = `${pathLength - newProgress}`;
+            }
 
             //stop the timer if it reaches the end
             if (newProgress >= pathLength) {
@@ -122,6 +132,7 @@ export const CircularTimer: FC<CircularTimerProps> = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={styles.circularTimer}
+        id="circularTimer"
         viewBox="0 0 421 380"
         fill="none"
         ref={svgRef}
@@ -144,11 +155,7 @@ export const CircularTimer: FC<CircularTimerProps> = ({
             stroke={`url(#${currentGradientId})`}
             strokeWidth="35"
             strokeLinecap="round"
-            style={{
-              strokeDasharray: pathLength,
-              strokeDashoffset:
-                fastingState === "neutral" ? 0 : pathLength - elapsedTime,
-            }}
+            id="progressPath"
           />
         </g>
 
