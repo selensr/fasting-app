@@ -12,10 +12,6 @@ interface CircularTimerProps {
   setRestart: (state: boolean) => void;
 }
 
-// SVG path
-const svgPath =
-  "M92.3763 260.66C82.0582 240.537 77.0761 218.103 77.9054 195.498C78.7347 172.892 85.3478 150.87 97.1136 131.532C108.879 112.195 125.405 96.1879 145.114 85.0386C164.823 73.8892 187.057 67.9698 209.694 67.8452C232.331 67.7205 254.617 73.3949 274.423 84.3267C294.229 95.2584 310.896 111.083 322.832 130.29C334.769 149.497 341.576 171.445 342.605 194.04C343.635 216.636 338.851 239.124 328.712 259.359";
-
 // Gradient colors for each state
 const neutralGradientId = "paint0_linear_1_55"; // Your neutral gradient ID
 const activeGradientId = "paint0_linear_2_107"; // Your active gradient ID
@@ -149,9 +145,9 @@ export const CircularTimer: FC<CircularTimerProps> = ({
           strokeLinecap="round"
         />
         {/* The rest of the static SVG is dynamic content */}
-        <g filter="url(#filter0_d)">
+        <g>
           <path
-            d={svgPath}
+            d="M92.3763 260.66C82.0582 240.537 77.0761 218.103 77.9054 195.498C78.7347 172.892 85.3478 150.87 97.1136 131.532C108.879 112.195 125.405 96.1879 145.114 85.0386C164.823 73.8892 187.057 67.9698 209.694 67.8452C232.331 67.7205 254.617 73.3949 274.423 84.3267C294.229 95.2584 310.896 111.083 322.832 130.29C334.769 149.497 341.576 171.445 342.605 194.04C343.635 216.636 338.851 239.124 328.712 259.359"
             stroke={`url(#${currentGradientId})`}
             strokeWidth="35"
             strokeLinecap="round"
